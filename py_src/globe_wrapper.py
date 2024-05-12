@@ -18,17 +18,15 @@ import tile_server_api
 import clock_app
 import text_printer_app
 
-num_leds_per_side = 55
+num_leds_per_side = 54
 radius = 13.25
-spacing_top = 1.5
-spacing_bottom = 2.0
+spacing_top = 0.3
+spacing_bottom = 3.5
 double_sided = True
 
-running_windows = os.name == "nt"
-usw_hw = not running_windows
+usw_hw = True
 
 projEquirect = PyPovGlobe.EquirectangularProjection()
-projMercator = PyPovGlobe.MercatorProjection()
 interpNearest = PyPovGlobe.NearestNeighbourPixelInterpolation()
 interpBilinear = PyPovGlobe.BilinearPixelInterpolaten()
 
@@ -41,14 +39,14 @@ arg_projection = dict(
     type="options",
     name="Projection Type",
     desc="Different projection types to map plane images onto a globe.",
-    options={"Equirectangular": projEquirect},  # "Mercator": projMercator
+    options={"Equirectangular": projEquirect}, 
 )
 
 arg_interpolation = dict(
     type="options",
     name="Interpolation Type",
     desc="Interpolation type for down/up scaling images.",
-    options={"Bilinear": interpBilinear, "Nearest Neighbour": interpNearest},
+    options={"Bilinear": interpBilinear, "Nearest Neighbour": interpNearest}, #Bicubic WIP
 )
 
 arg_images = dict(
@@ -124,10 +122,7 @@ all_apps = {a["name"]: a for a in all_apps}
 
 class GlobeWrapper:
     def __init__(self):
-        if usw_hw:
-            self.renderer = PyPovGlobe.RendererLedStripPico()
-        else:
-            self.renderer = PyPovGlobe.RendererSim()
+        self.renderer = PyPovGlobe.RendererLedStripPico()
 
         self.globe = PyPovGlobe.Globe(
             num_leds_per_side,
@@ -149,21 +144,15 @@ class GlobeWrapper:
 
     def get_ip_address(self, ifname):
 
-        if not running_windows:
-            import socket
-            import fcntl
-            import struct
+        import socket
+        import fcntl
+        import struct
 
-            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            return socket.inet_ntoa(
-                fcntl.ioctl(
-                    s.fileno(),
-                    0x8915,  # SIOCGIFADDR
-                    struct.pack("256s", bytes(ifname[:15], "utf-8")),
-                )[20:24]
-            )
-        else:
-            return "localhost"
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # Script to get current Local IP
+        return socket.inet_ntoa( 
+            fcntl.ioctl( s.fileno(), 0x8915, struct.pack("256s", bytes(ifname[:15], "utf-8")), # SIOCGIFADDR 
+            )[20:24]
+        )
 
     def get_all_apps(self):
         return all_apps

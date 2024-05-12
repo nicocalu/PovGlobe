@@ -29,19 +29,19 @@ LEDController &LEDController::getInstance()
 
 inline void LEDController::put_start_frame(PIO pio, uint sm)
 {
-    pio_sm_put_blocking(pio, sm, 0u);
+    pio_sm_put_blocking(pio, sm, 0u); //4 bytes of zeroes
 }
 
 inline void LEDController::put_end_frame(PIO pio, uint sm)
 {
-    pio_sm_put_blocking(pio, sm, ~0u);
+    pio_sm_put_blocking(pio, sm, ~0u); //4 bytes of ones
 }
 
 inline void LEDController::put_rgb888(PIO pio, uint sm, uint8_t r, uint8_t g, uint8_t b)
 {
     pio_sm_put_blocking(pio, sm,
                         0x7 << 29 |                     // magic
-                            (BRIGHTNESS & 0x1f) << 24 | // global brightness parameter
+                            (BRIGHTNESS & 0x1f) << 24 | // global brightness parameter (5 bits 0-31)
                             (uint32_t)b << 16 |
                             (uint32_t)g << 8 |
                             (uint32_t)r << 0);

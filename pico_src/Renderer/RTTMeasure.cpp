@@ -13,6 +13,7 @@ RTTMeasure::RTTMeasure()
 {
     init();
     gpio_set_irq_enabled_with_callback(PIN_HALL_SENSOR, GPIO_IRQ_EDGE_RISE, true, &RTTMeasure::gpio_hall_sensor_callback);
+    //set interrupt to callback func gpio_hall_sensor_callback
 }
 
 RTTMeasure::~RTTMeasure()
@@ -27,7 +28,7 @@ void RTTMeasure::init(){
     m_curr_segment_index = 0;
     m_last_hall_sensor_event = nil_time;
 
-    critical_section_init(&critical_section);
+    critical_section_init(&critical_section); //set up critical section 
 }
 
 RTTMeasure& RTTMeasure::getInstance() {
@@ -37,16 +38,19 @@ RTTMeasure& RTTMeasure::getInstance() {
 
 void RTTMeasure::gpio_hall_sensor_callback(uint gpio, uint32_t events) {
     const absolute_time_t curr_time = get_absolute_time();
+
     if (gpio != PIN_HALL_SENSOR)
         return;
     
     const uint32_t old_dt = m_measured_intervals[m_curr_segment_index];
+
     critical_section_enter_blocking(&critical_section);
-    if (!is_nil_time(m_last_hall_sensor_event)){
+
+    if (!is_nil_time(m_last_hall_sensor_event)){ //set up dts for the first time
         const uint32_t new_dt = absolute_time_diff_us(m_last_hall_sensor_event, curr_time);
         m_measured_intervals[m_curr_segment_index] = 0.5* new_dt + 0.5*old_dt;
     }
     m_last_hall_sensor_event = curr_time;
-    m_curr_segment_index = (m_curr_segment_index + 1U) % N_MAGNETS;
+    m_curr_segment_index = (m_curr_segment_index + 1U) % N_MAGNETS; //change segment index
     critical_section_exit(&critical_section);
 }

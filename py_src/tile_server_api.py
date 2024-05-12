@@ -74,9 +74,9 @@ def get_world(zoom, tile_server_format_url):
 tile_map_urls = {
     "OSM" : "http://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
     "OSMWeather": "https://weather.openportguide.de/tiles/actual/wind_stream/0h/{z}/{x}/{y}.png",
-    "Thunderforest": "http://tile.thunderforest.com/landscape/{z}/{x}/{y}.png",
-    "ThunderforestSpinal": "http://tile.thunderforest.com/spinal-map/{z}/{x}/{y}.png",
-    "ThunderforestAtlas": "http://tile.thunderforest.com/atlas/{z}/{x}/{y}.png",
+    # "Thunderforest": "http://tile.thunderforest.com/landscape/{z}/{x}/{y}.png",
+    # "ThunderforestSpinal": "http://tile.thunderforest.com/spinal-map/{z}/{x}/{y}.png",
+    # "ThunderforestAtlas": "http://tile.thunderforest.com/atlas/{z}/{x}/{y}.png",
     "StamenTerrain": "http://tile.stamen.com/terrain-background/{z}/{x}/{y}.jpg",
 
     

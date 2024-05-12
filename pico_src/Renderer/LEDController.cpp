@@ -62,8 +62,8 @@ void LEDController::core1_write_pixels()
     {
         ledController.put_rgb888(pio, sm,
                                     0,  //render_buff[column * N_BUFFER_SIZE_PER_COLUMN + i],
-                                    0,//render_buff[column * N_BUFFER_SIZE_PER_COLUMN + i + 1],
-                                    0//render_buff[column * N_BUFFER_SIZE_PER_COLUMN + i + 2]
+                                    0,  //render_buff[column * N_BUFFER_SIZE_PER_COLUMN + i + 1],
+                                    0   //render_buff[column * N_BUFFER_SIZE_PER_COLUMN + i + 2]
                                 );
     }
     ledController.put_end_frame(pio, sm);

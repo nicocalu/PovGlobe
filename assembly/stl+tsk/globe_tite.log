@@ -1,0 +1,30 @@
+Conversion de Solid Edge en STL
+Date: mardi,avril 02,2024 08:32
+Fichier source:\\unity-home.insa-lyon.fr\users\home\ncardenas\P2I\GLOBE\globe_tite.par
+Système source: SOLID EDGE
+
+Matériel:
+Processeur: Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz
+Système d'exploitation: Windows 10
+Mémoire installée: 7.99 GB
+
+Informations logiciel:
+Version de Parasolid: 32.0.186
+Version de PSBodyshop: 31.1.110
+Version de Solid Edge: 220.00.07.003 x64
+
+Options d'exportation STL:
+Format de fichier de sortie:BINARY
+Exporter les pièces affichées: Off
+structureOption: Monolithic
+Unités d'exportation:Inch
+Exporter la valeur de tolérance:0.050000
+Exporter le type de tolérance:Custom
+Exporter la valeur d'angle du plan de surface:0.523599
+
+Progression de la conversion:
+Phase 1 sur 2 - Récupération des informations Parasolid...
+Phase 2 sur 2 - Conversion de Parasolid en types de données externes...
+Nombre de fichiers STL créés: 1
+Processus de conversion terminé
+Durée nécessaire pour la conversion:00 : 00 : 00

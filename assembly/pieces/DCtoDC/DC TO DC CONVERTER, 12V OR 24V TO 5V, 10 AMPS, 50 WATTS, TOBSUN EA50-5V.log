@@ -1,0 +1,40 @@
+Conversion STEP vers Solid Edge
+Date: jeudi,mars 28,2024 09:22
+Fichier source: \\unity-home.insa-lyon.fr\users\home\ncardenas\P2I\GLOBE\pieces\DC TO DC CONVERTER, 12V OR 24V TO 5V, 10 AMPS, 50 WATTS, TOBSUN EA50-5V.STEP
+Auteur: Inconnu
+Organisation: Inconnu
+Système source: SolidWorks 2017
+
+Matériel:
+Processeur: Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz
+Système d'exploitation: Windows 10
+Mémoire installée: 7.99 GB
+
+Informations sur le logiciel
+Version de Parasolid: 32.0.186
+Version de PSBodyShop: 31.1.110
+Version de l'adaptateur Step: 5.0.107
+Version de Solid Edge: 220.00.07.003 x64
+
+Options d'importation STEP
+Importer les corps à facettes : Actif
+Importer les corps de vérification : Désactivé
+Importer les courbes : Actif
+Importer ce qu'il ne faut pas enregistrer : Actif
+Importer plusieurs corps en tant qu'un seul fichier pièce : Actif
+Importer les surfaces cousues : Actif
+Importer les solides booléens : Actif
+Créer fonction technologique de base: Actif
+Simplifier géométrie: Actif
+Importer les courbes de gravure : Actif
+Importer le guide : C:
+Importer les surfaces cousues : Actif
+Importer les surfaces : Actif
+Importer le chemin en sortie : \\unity-home.insa-lyon.fr\users\home\ncardenas\P2I\GLOBE\pieces
+Importer la possibilité de chemin de sortie par défaut : Actif
+Importer PMI: Désactivé.
+Importer le chemin : 
+
+Conversion vers les types de données Parasolid...
+Fin de  l'opération de conversion
+Temps total nécessaire à la conversion et au post-traitement:00 : 00 : 02

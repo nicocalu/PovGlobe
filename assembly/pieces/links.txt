@@ -1,0 +1,14 @@
+dc-dc converter: (20e)
+https://www.amazon.de/-/en/Step-Down-Converter-SUPERNIGHT-Supply-Transformer/dp/B07XRRYWM1/
+
+leds: (40e)
+https://www.amazon.de/BTF-LIGHTING-%C3%A4hnlich-Individuell-adressierbar-Nicht-wasserdichtes/dp/B07BPQV7FW
+
+motor: (~30e)
+https://www.amazon.de/gp/product/B0768DVMYN
+
+power: (20e)
+https://www.amazon.de/Docooler-100V-Spannungswandler-Schalter-Spg-Versorgungsteil/dp/B01LAVDD8S
+
+brushes: (10e)
+https://www.amazon.de/vhbw-Kohle-B%C3%BCrste-Motorkohle-Schleifkohle-Elektrowerkzeug/dp/B0799PMH36

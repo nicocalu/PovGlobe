@@ -1,0 +1,25 @@
+STL translation to Solid Edge
+Date: mardi,mars 26,2024 08:58
+Fichier source:\\unity-home.insa-lyon.fr\users\home\ncardenas\P2I\GLOBE\reference\rotor_top_left.stl
+Auteur: Inconnu
+Organisation: Inconnu
+Système source: DEX
+
+Matériel:
+Processeur: Intel(R) Xeon(R) Gold 6246R CPU @ 3.40GHz
+Système d'exploitation: Windows 10
+Mémoire installée: 7.99 GB
+
+Informations logiciel:
+Version de Parasolid: 32.0.186
+Version de PSBodyshop: 31.1.110
+Version de Solid Edge: 220.00.07.003 x64
+
+STL Import Options
+Réparer les défauts de maillage:Off
+En faire la fonction de base:On
+Activer le fichier journal: On
+
+Progression de la conversion:
+Processus de conversion terminé
+Durée nécessaire pour la conversion:00 : 00 : 00

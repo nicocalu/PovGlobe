@@ -1,0 +1,22 @@
+﻿Nom du rapport: \\unity-home.insa-lyon.fr\users\home\ncardenas\P2I\GLOBE\SolidEdge\report.txt
+Heure du rapport: 01/06/2024 13:05:57
+Options du rapport:
+    Noms des pièces
+
+Ensemble de sélection #1:
+    brushBase.par:1
+
+Interférences:
+    1 de 3
+    brushBase.par:1
+    mot-xd-3240.par:1
+
+    2 de 3
+    brushBase.par:1
+    BrushR.par:1
+
+    3 de 3
+    brushBase.par:1
+    BrushR.par:1
+
+    3 Interférences détectées

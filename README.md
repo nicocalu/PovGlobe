@@ -8,13 +8,4 @@ I changed some parts of the code and some physical parts, to be able to use agil
 - [Setup Instructions](doc/setup.md)
 
 ## Images
-
-### Final PoV Globe
-<table>
-
-</table>
-
-### Screenshots from the Web Ui
-<table>
-
-</table>
+![Poster](POSTER.png)

@@ -5,6 +5,7 @@ Please be adviced that signifficant knowledge about electronics is necessary in 
 Also a good understanding of software development is necessary to implement new algorithms/visualizations.
 
 Due to my limited time (:smile:), only basic documenation is available and you probably have to figure out some things on you own (mostly hardware related). If you worked on a similar project before, this should not be an issue for you!
+There is a full wiring diagram in the KiCad folder, that can help you if you are having trouble with that.
 
 
 ## Part List
@@ -26,18 +27,15 @@ Several crutial parts are necessary to build this globe. Here is a list of the m
   - The have to fit the 3d printed housing or you build your own
   - 5mm wide x 8mm high and 12mm long
   - Similar to this one www.amazon.de/vhbw-Kohle-Bürste-Motorkohle-Schleifkohle-Elektrowerkzeug/dp/B0799PMH36
-- 8 Neodym Magnets (10 x 2 mm)
+- 6 Neodym Magnets (10 x 2 mm)
   -  www.amazon.de/gp/product/B06X977K8L
 -  LM2596 DC-DC Buck Converter for converting the 24V into 5V for LEDs + RPi + Pico
    -  www.amazon.de/LAOMAO-Step-up-Converter-Raspberry-DIY-Projects-1-St%C3%BCck/dp/B00HV59922
 - 3D printed parts 
-  - Download it from thingiverse
-  - www.thingiverse.com/thing:4871230
-- Transparent showcase with solid base (used as a housing for the globe)
+  - All of these are in the pieces folder
+- Wooden showcase with solid base (used as a housing for the globe)
   - 300 mm square base, >= 320mm height
   - I build my own base (140mm high) to hide the motor
-  - The case I used is no longer available. This one is similar but too small: www.amazon.de/HMF-Vitrine-Schaukasten-Modellautos-Transparent/dp/B08GQ5JS6B
-
 
 # Software Setup
 In order to build the software, provided in this repository, you need several software packages:
@@ -48,6 +46,9 @@ On Linux (Raspberry Pi):
 sudo apt-get install cmake g++-4.8
 ```
 
+### PICO SDK:
+- https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf (page 31)
+
 - SWIG (4.0.2): http://swig.org/Doc4.0/SWIGDocumentation.html#Preface_unix_installation
 
 - ImageMagick6 (6.9.12) https://legacy.imagemagick.org/script/download.php
@@ -57,18 +58,7 @@ sudo apt-get install libmagick++-dev
 
 - bcm2835 library for raspberry pi: https://raspberry-projects.com/pi/programming-in-c/io-pins/bcm2835-by-mike-mccauley
   
-- In order to use the python webserve, you have to install a few pip packages for python3.
-```bash
-py -3 pip -m install flask requests
-```
-
-On Windows:
-- CMake (3.20.2): https://cmake.org/download/
-- SWIG (4.0.2): http://www.swig.org/Doc1.3/Windows.html, https://sourceforge.net/projects/swig/files/swigwin/swigwin-4.0.2/swigwin-4.0.2.zip/download?use_mirror=altushost-swe
-- ImageMagick6 (6.9.12) https://legacy.imagemagick.org/script/download.php
-  - Windows: https://download.imagemagick.org/ImageMagick/download/binaries/ImageMagick-6.9.12-10-Q16-HDRI-x64-dll.exe 
-  - Don't forget to check "Install development headers and libraries for c and c++" during installation
-- In order to use the python webserve, you have to install a few pip packages for python3.
+- In order to use the python webserver, you have to install a few pip packages for python3.
 ```bash
 py -3 pip -m install flask requests
 ```
@@ -77,7 +67,7 @@ py -3 pip -m install flask requests
 The software has a set of configurable parameters in order to work with arbitrary globes (e.g. different number of LEDs). These settings have to be configured in two files (one for the rpi software and a second time for the pico).
 - Raspberry Pi Software
   - The framework has two entrypoints. One for the c++ implementation and one for the python wrapper.
-  - ~~For the c++ implementation, the settings are set in `cpp_src\PovGlobe\main.cpp` lines 24-27.~~
+  - For the c++ implementation, the settings are set in `cpp_src\PovGlobe\main.cpp` lines 24-27.
   - For the python implementation, which includes the webserver, the same settings are hard-coded in `py_src\globe_wrapper.py` line 21-25.
   - Adjust the settings according to you needs. Here is a short description
     - leds = 55 -> 55 Pixels per side
@@ -94,14 +84,6 @@ The software has a set of configurable parameters in order to work with arbitrar
     - The other settings include the pin layout of the pico which is used to communiate with the Rpi and to control its sensors and LEDs.
 
 ## Build Instructions
-### Windows (powershell)
-On windows, we can only build the simulation environment in order to quickly prototype and implement new apps.
-```bash
-mkdir build
-cd build
-cmake ..
-cmake --build . --config Release
-```
 
 ### Linux (Bash)
 On linux, we can build the simulation environment, the hardware environment and the pico firmware. All will be build by the following command if all necessary dependencies are installed.
@@ -117,11 +99,8 @@ Now, we have to flash the rpi pico firmware in order to get the globe running. T
 sudo py -3 pico_ src/flash.py <path-to-uf2-file-in-build>
 ```
 The script will mount the pico, upload the firmware and unmount the pico again. After that, the firmware should be flashed.
+**If your build fails, or has any compilation errors, I recommend you wipe your RPi and install the dependencies from scratch**
 
-
-## First Test
-
-A real test-mode needs to be implemented. Currenlty no stand-alone test software is available.
 
 ### Simulation
 To make sure that the build was suceesfull, lets start with the simulation environment which renders the globe onto a window
